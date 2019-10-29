@@ -1,3 +1,5 @@
+package main;
+
 public class DwellingFloor
 {
     private Flat[] flats;
@@ -16,7 +18,7 @@ public class DwellingFloor
         this.flats = flats;
     }
 
-    public int getFlatCount()
+    public int getFlatsCount()
     {
         return flats.length;
     }
@@ -24,7 +26,7 @@ public class DwellingFloor
     public int getCommonArea()
     {
         int commonArea = 0;
-        for (int i = 0; i < getFlatCount(); i++)
+        for (int i = 0; i < getFlatsCount(); i++)
         {
             commonArea = commonArea + flats[i].getArea();
         }
@@ -34,7 +36,7 @@ public class DwellingFloor
     public int getCommonRoomCount()
     {
         int commonRoomCount = 0;
-        for (int i = 0; i < getFlatCount(); i++)
+        for (int i = 0; i < getFlatsCount(); i++)
         {
             commonRoomCount = commonRoomCount + flats[i].getRoomCount();
         }
