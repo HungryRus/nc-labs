@@ -1,5 +1,3 @@
-package main;
-
 public class DwellingFloor
 {
     private Flat[] flats;
@@ -83,7 +81,6 @@ public class DwellingFloor
     {
         Flat[] newFlats = new Flat[flats.length - 1];
         for (int i = 0; i < newFlats.length; i++)
-
         {
             if (i < flatNum)
             {
@@ -91,7 +88,7 @@ public class DwellingFloor
             }
             else
             {
-                newFlats[i] = flats[i + 1];
+                newFlats[i] = flats[i + i];
             }
         }
         flats = newFlats;
@@ -99,17 +96,28 @@ public class DwellingFloor
 
     public Flat getBestSpace()
     {
-        Flat bestSpaceFlat = flats[0];
-        for (int i = 1; i < flats.length; i++)
+        if (flats.length > 1)
         {
-            if (flats[i].getArea() > bestSpaceFlat.getArea())
+            Flat bestSpaceFlat = flats[0];
+            for (int i = 1; i < flats.length; i++)
             {
-                bestSpaceFlat = flats[i];
+                if (flats[i].getArea() > bestSpaceFlat.getArea())
+                {
+                    bestSpaceFlat = flats[i];
+                }
             }
+            return bestSpaceFlat;
         }
-        return bestSpaceFlat;
+        else if (flats.length == 1)
+        {
+            return flats[0];
+        }
+        else
+        {
+            System.out.println("ERROR");
+            return null;
+        }
     }
-
 }
 
 
