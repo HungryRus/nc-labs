@@ -1,3 +1,5 @@
+package buildings;
+
 public class Dwelling
 {
 
@@ -170,24 +172,32 @@ public class Dwelling
 
     public Flat[] getFlatsSorted()
     {
-        Flat[] getFlatsSorted = new Flat[getFlatsCount()];
+        Flat[] flatsSorted = new Flat[getFlatsCount()];
+        int pointer = 0;
+        for (int i = 0; i < floors.length; i++)
+        {
+            for (int j = 0; j < floors[i].getFlatsCount(); j++)
+            {
+                flatsSorted[pointer++] = floors[i].getFlat(j);
+            }
+        }
         boolean swapped = true;
-        for (int i = 0; i <floors.length-1 ; i++){
+        Flat temp;
+        while (swapped)
+        {
             swapped = false;
-            for (int j = 0; j < floors.length - i - 1; j++)
-            {//не хватает скобок, а еще floors.length это инт, а ты у него пытаешься достать элемент как у массива
-                if (floors.length[j] > floors.length[j + 1])
+            for (int i = 0; i < flatsSorted.length - 1; i++)
+            {
+                if (flatsSorted[i].getArea() > flatsSorted[i + 1].getArea())
                 {
-                    int temp = floors.length[j];
-                    floors.length[j] = floors.length[j + 1];
-                    floors.length[j + 1] = temp;
+                    temp = flatsSorted[i];
+                    flatsSorted[i] = flatsSorted[i + 1];
+                    flatsSorted[i + 1] = temp;
                     swapped = true;
                 }
-
-            if (swapped == false)
-                break;
+            }
         }
-            return getFlatsSorted;
-
-        }
+        return flatsSorted;
+    }
 }
+

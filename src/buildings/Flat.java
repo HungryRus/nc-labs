@@ -1,3 +1,5 @@
+package buildings;
+
 public class Flat
 {
     private int area;

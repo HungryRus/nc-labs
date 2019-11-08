@@ -1,3 +1,5 @@
+package buildings;
+
 public class Main
 {
     public static void main(String[] args)
@@ -10,7 +12,7 @@ public class Main
         Dwelling dwelling1 = new Dwelling(floors);
         //Изменение площади 0-ой квартиры 0-ого этажа
         dwelling1.getFloor(1).getFlat(1).setArea(21321);
-        dwelling1.setFlat(4, new asd.Flat(1000, 20));
+        dwelling1.setFlat(4, new Flat(1000, 20));
 
         //Создание здания Dwelling другим путем
         int[] flatsInEachFloor = {1, 2, 3, 4};
@@ -33,11 +35,45 @@ public class Main
             //Проход циклом по всем квартирам этажа
             for (int j = 0; j < floor.getFlats().length; j++)
             {
-                asd.Flat flat = floor.getFlat(j);
+                Flat flat = floor.getFlat(j);
 
                 System.out.println(
                         "  Квартира №" + j + ": площадь " + flat.getArea() + ", комнат " + flat.getRoomCount());
             }
         }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+
+        Flat[] flatsSorted = dwelling.getFlatsSorted();
+        for (int i = 0; i < flatsSorted.length; i++)
+        {
+
+            System.out.println(flatsSorted[i].getArea());
+        }
+
+        System.out.println();
+
+        System.out.println(dwelling.getBestSpace().getArea());
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        System.out.println(dwelling.getCommonArea());
+
+        for (int i = 0; i < dwelling.getFloorsCount(); i++)
+        {
+            
+        }
+            System.out.println(dwelling);
+
     }
+
+
+
+
+
 }
